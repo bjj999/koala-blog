@@ -20,14 +20,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Zola
-        uses: setup-zola@v1
         with:
-          version: '0.23.0'
+          submodules: recursive
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
 
       - name: Build with Zola
-        run: zola build
+        uses: getzola/github-pages@v1
+        with:
+          version: '0.23.0'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

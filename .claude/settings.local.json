@@ -69,7 +69,10 @@
       "Bash(rm -rf content/* && mkdir -p content/journal)",
       "Bash(git commit -m 'Switch to Olivine theme and prepare for GitHub Pages *)",
       "Bash(git push *)",
-      "Bash(curl -sI https://github.com)"
+      "Bash(curl -sI https://github.com)",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"setup-zola github action version available 0.23\")",
+      "WebFetch(domain:www.getzola.org)",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"getzola github-pages action workflow example latest version\")"
     ]
   }
 }
