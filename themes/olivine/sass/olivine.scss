@@ -1,0 +1,358 @@
+$header-height: 3rem;
+$leftbar-width: 15rem;
+$rightbar-width: 15rem;
+$main-max-width: 50rem;
+
+html[data-theme='light'] {
+  --body-bg: #eee;
+  --body-text: #111;
+  --sidebar-bg: #ddd;
+  --sidebar-text: #222;
+  --topbar-bg: #ccc;
+  --link: #371;
+  --link-hover: #6a4;
+  --admonish-bg: #ddd;
+}
+
+html, html[data-theme='dark'] {
+  --body-bg: #111;
+  --body-text: #bbb;
+  --sidebar-bg: #222;
+  --sidebar-text: #aaa;
+  --topbar-bg: #333;
+  --link: #9b7;
+  --link-hover: #bf8;
+  --admonish-bg: #222;
+}
+
+body {
+  margin: 0;
+  background-color: var(--body-bg);
+  color: var(--body-text);
+  font-family: "Arial", sans-serif;
+  color-scheme: light dark;
+
+  a {
+    color: var(--link);
+    text-decoration: inherit;
+  }
+  a:hover {
+    color: var(--link-hover);
+  }
+}
+
+body.leftbar {
+  #leftbar {
+    left: 0;
+  }
+  #main-area {
+    margin-left: $leftbar-width;
+  }
+}
+
+body.rightbar {
+  #rightbar {
+    right: 0;
+  }
+  #main-area {
+    margin-right: $rightbar-width;
+  }
+}
+
+header {
+  background-color: var(--topbar-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: $header-height;
+  z-index: 1;
+
+  >div {
+    height: 100%;
+    margin: 0 1rem;
+    align-items: center;
+    display: flex;
+    column-gap: 0.5rem;
+    >#olivine-breadcrumb {
+      margin-right: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .olivine-icon {
+      font-size: 120%;
+    }
+  }
+
+  #search {
+    width: 15em;
+    >input {
+      width: 100%;
+      padding: 0.5em 1em;
+      font-size: 90%;
+      color: var(--sidebar-text);
+      background-color: var(--header-bg);
+      border: 1px solid var(--sidebar-text);
+      border-radius: 1em;
+    }
+    >div {
+      position: absolute;
+      width: inherit;
+      background: var(--sidebar-bg);
+      >p {
+        margin: 1em 0.5em;
+      }
+    }
+  }
+}
+
+#main-area {
+  margin-top: $header-height;
+  padding: 0 2em;
+  display: flex;
+  transition: margin 0.3s;
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  line-height: 1.5;
+  overflow-y: auto;
+  position: fixed;
+  height: calc(100vh - $header-height);
+  top: $header-height;
+}
+
+#leftbar {
+  width: $leftbar-width;
+  left: -$leftbar-width;
+  transition: left 0.3s;
+}
+
+#rightbar {
+  width: $rightbar-width;
+  right: -$rightbar-width;
+  transition: right 0.3s;
+  font-size: 90%;
+  li {
+    margin: 0.5em;
+  }
+}
+
+.sidebar-content {
+  margin: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    padding-inline-start: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  ul ul {
+    padding-inline-start: 1em;
+  }
+  li {
+    margin: 0.5em;
+  }
+
+  a {
+    color: inherit;
+    display: block;
+  }
+
+  #olivine-directory.hidden {
+    li.hidden {
+      display: none;
+    }
+  }
+}
+
+.olivine-icon {
+  display: inline-block;
+  text-align: center;
+  width: 1.3em;
+}
+
+main {
+  line-height: 1.7;
+  width: 100%;
+  max-width: $main-max-width;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 200%;
+    margin: 1em 0;
+  }
+  h2 {
+    font-size: 150%;
+    margin-top: 1.5em;
+  }
+  h3 {
+    font-size: 130%;
+  }
+  h4 {
+    font-size: 110%;
+  }
+  h1, h2, h3, h4 {
+    scroll-margin-top: $header-height;
+  }
+
+  table {
+    margin: 1em auto;
+    border-spacing: 1.5em 0;
+  }
+  p > code {
+    background-color: var(--sidebar-bg);
+    padding: 0.2em 0.3em;
+  }
+
+  pre {
+    padding: 0.5em;
+    white-space: pre-wrap;
+    code[data-lang]::before {
+      content: "[ " attr(data-lang) " ]";
+      display: block;
+      padding: 0.5em;
+      text-transform: uppercase;
+    }
+    table {
+      td:first-child {
+        width: 2.5em;
+      }
+      tr:has(mark) {
+        background-color: rgba(110,180,80,0.15);
+      }
+      mark {
+        background-color: inherit !important;
+        color: inherit;
+      }
+      margin: 0;
+      border-spacing: 0;
+      width: 100%;
+    }
+  }
+
+  .MathJax {
+    padding-top: 0.1em;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  svg {
+    display: block;
+    margin: 1em auto;
+  }
+
+  .olivine-admonish {
+    margin: 1em 0;
+    padding: 0 1em;
+    background-color: var(--admonish-bg);
+    border: 1px solid var(--admonish-bg);
+    border-radius: 1em;
+  }
+
+  span.olivine-tag {
+    font-size: 0.9em;
+    display: inline-block;
+    border-radius: 0.3em;
+    padding: 0 0.5em;
+    background-color: color-mix(in srgb,var(--link),var(--body-bg) 90%);
+  }
+  > span.olivine-tag {
+    margin: 0.4rem;
+  }
+
+  details.proof {
+    margin: 1em 0;
+    summary {
+      cursor: pointer;
+    }
+    p:last-child:after {
+      content: "\2610";
+      float: right;
+    }
+  }
+
+  li:has(>input:first-child:checked) {
+    text-decoration:line-through;
+    color: color-mix(in srgb,var(--body-text),var(--body-bg) 50%);
+  }
+
+  blockquote {
+    margin-left: 0em;
+    padding-left: 1em;
+    border-left: .1em solid color-mix(in srgb,var(--body-text),var(--body-bg) 30%);
+    color: color-mix(in srgb,var(--body-text),var(--body-bg) 30%);
+  }
+
+  .footnote-definition {
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+html[data-theme='dark'] main svg {
+  filter: invert(1);
+}
+
+#help-window {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(1rem);
+  z-index: 2;
+  >div {
+    margin: auto;
+    padding: 3rem;
+    width: $main-max-width;
+    border: 3px solid var(--link);
+    border-radius: 1rem;
+    background-color: var(--body-bg);
+  }
+  #help-shortcuts {
+    margin: 2rem 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto auto auto auto auto;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    code {
+      font-size: 120%;
+      border: 1px solid var(--body-text);
+      border-radius: 3px;
+      padding: 0.2em;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+span.goelems {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  font: 1rem monospace;
+  color: black;
+  background-color: #ae7;
+  border: 2px solid black;
+}
+
+@media print {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+  .sidebar, header {
+    display: none;
+  }
+  #main-area {
+    margin: 0;
+  }
+}
+

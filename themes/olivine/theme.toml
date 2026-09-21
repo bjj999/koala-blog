@@ -1,0 +1,17 @@
+name = "Olivine"
+description = "A Zola theme for a personal knowledge base"
+license = "MIT"
+homepage = "https://github.com/dongryul-kim/olivine"
+min_version = "0.23.0"
+demo = "https://dongryul-kim.github.io/olivine/"
+
+[extra.olivine]
+journal = true
+graph = true
+mathjax = true
+tikzjax = false
+extra_js = [ ]
+
+[author]
+name = "Dongryul Kim"
+homepage = "https://web.stanford.edu/~dkim04/"

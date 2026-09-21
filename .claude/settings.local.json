@@ -44,7 +44,29 @@
       "Bash(git config *)",
       "Bash(ssh -T git@gitee.com)",
       "Bash(git remote *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"gitee pages 开启 2024 2025 设置方法 最新\")",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"gitee pages 2025 2026 还能用吗 关闭 取消 最新消息\")",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"gitee pages 静态网站 托管 在哪里找 2024 入口\")",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"gitee pages 开启方法 2024 2025 设置 入口在哪\")",
+      "WebFetch(domain:help.gitee.com)",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"site:gitee.com gitee pages 帮助 文档\")",
+      "WebFetch(domain:www.zhihu.com)",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"gitee pages 关闭 下线 不能用 2024 2025 知乎\")",
+      "Bash(where gh *)",
+      "Bash(gh auth *)",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"zola 0.20.0 to 0.23 upgrade changelog breaking changes\")",
+      "Bash(powershell -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://gh-proxy.com/https://github.com/getzola/zola/releases/download/v0.20.0/zola-v0.20.0-x86_64-pc-windows-msvc.zip' -OutFile 'C:\\\\Users\\\\Administrator\\\\Desktop\\\\vibe_coding\\\\Koala_Blog\\\\zola_new.zip' -UseBasicParsing -TimeoutSec 60\")",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"olivine zola theme github repository Dongryul Kim\")",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"github.com getzola olivine theme zola\")",
+      "WebFetch(domain:salif.github.io)",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"site:github.com olivine zola theme blog knowledge base\")",
+      "Bash(python C:/Users/Administrator/.claude/scripts/tavily_search.py \"\\\\\"olivine\\\\\" \\\\\"zola\\\\\" theme github.com dongryul\")",
+      "Bash(unzip -o olivine-quickstart-main.zip)",
+      "Bash(powershell -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://gh-proxy.com/https://github.com/dongryul-kim/olivine/archive/refs/heads/main.zip' -OutFile 'C:\\\\Users\\\\Administrator\\\\Desktop\\\\vibe_coding\\\\Koala_Blog\\\\olivine-theme.zip' -UseBasicParsing -TimeoutSec 120\")",
+      "Bash(unzip -o olivine-theme.zip -d themes/)",
+      "Bash(rm -rf templates/* && rm -f static/style.css && rm -f deploy.sh)",
+      "Bash(rm -rf content/* && mkdir -p content/journal)"
     ]
   }
 }

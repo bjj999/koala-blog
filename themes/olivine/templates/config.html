@@ -1,0 +1,8 @@
+<script>
+  // Import Zola variables to Javascript
+  var olivine = {
+    base_url: "{{ config.base_url | trim_end(pat="/") | safe }}",
+    {% if current.lower %}lower: "{{ current.lower.permalink | safe }}",{% endif %}
+    {% if current.higher %}higher: "{{ current.higher.permalink | safe }}",{% endif %}
+  };
+</script>

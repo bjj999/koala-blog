@@ -1,0 +1,25 @@
+title = "Olivine"
+description = "A theme for a personal knowledge base"
+base_url = "https://dongryul-kim.github.io/olivine"
+
+compile_sass = true
+taxonomies = [ { name = "tags" } ]
+build_search_index = true
+
+[markdown]
+external_links_target_blank = true
+smart_punctuation = true
+
+[markdown.highlighting]
+theme = "github-dark"
+
+[link_checker]
+internal_level = "warn"
+
+[extra.olivine]
+journal = true   # Enables journal functionality
+graph = true     # Enables graph view
+mathjax = true   # Enables MathJax
+tikzjax = true   # Enables TikzJax
+extra_js = [ ]   # Extra javascript files, an array of strings
+
