@@ -67,7 +67,9 @@
       "Bash(unzip -o olivine-theme.zip -d themes/)",
       "Bash(rm -rf templates/* && rm -f static/style.css && rm -f deploy.sh)",
       "Bash(rm -rf content/* && mkdir -p content/journal)",
-      "Bash(git commit -m 'Switch to Olivine theme and prepare for GitHub Pages *)"
+      "Bash(git commit -m 'Switch to Olivine theme and prepare for GitHub Pages *)",
+      "Bash(git push *)",
+      "Bash(curl -sI https://github.com)"
     ]
   }
 }

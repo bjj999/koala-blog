@@ -1,6 +1,7 @@
 title = "Koala Blog"
 description = "一个使用 Zola 搭建的个人博客"
-base_url = "https://white-koala.github.io/koala-blog"
+base_url = "https://bjj999.github.io/koala-blog"
+theme = "olivine"
 
 compile_sass = true
 taxonomies = [{ name = "tags" }]
