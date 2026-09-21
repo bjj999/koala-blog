@@ -1,24 +1,26 @@
 +++
 title = "Hello World!"
 date = 2026-09-21
-tags = ["blog", "zola", "first-post"]
+
+[taxonomies]
+tags = ["博客", "Zola", "第一篇"]
 +++
 
 # Hello World! 🐨
 
-Welcome to my blog! This is the first post built with **Zola** and the **Olivine** theme.
+欢迎来到我的博客！这是使用 **Zola** 和 **Olivine** 主题发布的第一篇文章。
 
-## About This Blog
+## 关于这个博客
 
-This blog is named **Koala Blog**, a personal blog built using the Zola static site generator. Here's why I chose Zola:
+这个博客名叫 **Koala Blog**，是用 Zola 静态站点生成器搭建的个人博客。选择 Zola 的原因如下：
 
-- 🚀 **Fast** — Written in Rust, incredibly fast build times
-- 📝 **Simple** — Write in Markdown, focus on content
-- 🎨 **Beautiful** — Olivine theme with dark mode support
+- 🚀 **快** —— 用 Rust 编写，构建速度极快
+- 📝 **简单** —— 专注用 Markdown 写作，心无旁骛
+- 🎨 **好看** —— Olivine 主题自带暗色模式
 
-## Code Example
+## 代码示例
 
-Here's a simple Python example:
+下面是一段简单的 Python 示例：
 
 ```python
 def hello_world():
@@ -28,14 +30,14 @@ if __name__ == "__main__":
     hello_world()
 ```
 
-## What's Next
+## 接下来要做的事
 
-- [x] Set up the blog framework
-- [x] Publish the first post
-- [ ] Add more content
-- [ ] Configure SEO
-- [ ] Deploy to GitHub Pages
+- [x] 搭好博客框架
+- [x] 发布第一篇文章
+- [ ] 补充更多内容
+- [ ] 配置 SEO
+- [ ] 部署到 GitHub Pages
 
 ---
 
-Thank you for reading! Stay tuned for more interesting content. 🐨✨
+感谢阅读！后续会持续更新有意思的内容。🐨✨

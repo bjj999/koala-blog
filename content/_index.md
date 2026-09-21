@@ -1,7 +1,7 @@
 +++
-title = "Home"
+title = "首页"
 +++
 
-# Welcome to Koala Blog 🐨
+# 欢迎来到 Koala Blog 🐨
 
-A personal blog built with [Zola](https://www.getzola.org/) and the [Olivine](https://www.getzola.org/themes/olivine) theme.
+这是一个使用 [Zola](https://www.getzola.org/) 静态站点生成器和 [Olivine](https://www.getzola.org/themes/olivine) 主题搭建的个人博客。

@@ -17,6 +17,12 @@ theme = "github-dark"
 [link_checker]
 internal_level = "warn"
 
+# 中文站点：保留中文路径与中文标签/锚点，避免被转写成拼音
+[slugify]
+paths = "safe"
+taxonomies = "safe"
+anchors = "safe"
+
 [extra]
 author = "White_Koala"
 
