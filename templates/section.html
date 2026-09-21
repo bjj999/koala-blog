@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock %}
+
+{% block content %}
+<div class="section">
+    <h1>{{ section.title }}</h1>
+    {% if section.description %}
+    <p class="section-desc">{{ section.description }}</p>
+    {% endif %}
+
+    <div class="posts">
+        {% for page in section.pages %}
+        <article class="post-card">
+            <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+            <time>{{ page.date | date(format="%Y年%m月%d日") }}</time>
+            <a href="{{ page.permalink }}" class="read-more">阅读更多 →</a>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
