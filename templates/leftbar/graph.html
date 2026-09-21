@@ -1,0 +1,5 @@
+{%- if config.extra.olivine.graph | default(value=true) %}
+<ul>
+  <li><a href="{{ config.base_url | safe }}/olivine-internal-graph/">{{<olivine.icon name="diagram-project" type="solid"/>}} 知识图谱</a></li>
+</ul>
+{%- endif %}

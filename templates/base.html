@@ -1,0 +1,80 @@
+{%- set_global current = section or page or {} %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="{{ config.base_url | safe }}/manifest.json">
+    <meta name="theme-color" content="#786"/>
+    {%- block metadata %}
+    <title>{{ config.title }}{% if current.title %} &middot; {{ current.title | safe }}{% endif %}</title>
+    <meta name="description" content="{% if current.description %}{{ current.description }}{% elif current.title %}{{ current.title }}{% if current.content %} - {{ current.content | striptags | truncate(length=120) }}{% endif %}{% else %}{{ config.title }}{% if config.description %} - {{ config.description }}{% endif %}{% endif %}"/>
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path="icon.svg") }}">
+    {%- endblock %}
+    {%- block stylesheets %}
+    <link href="{{ get_url(path="olivine.css") }}" rel="stylesheet"/>
+    {{<olivine.defer_stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>}}
+    {%- endblock %}
+    {%- include "config.html" %}
+    {%- block scripts %}
+    <script src="{{ get_url(path="olivine.js") }}"></script>
+    {% include "internal/mathjax.html" %}
+    {% include "internal/tikzjax.html" %}
+    {%- for js in config.extra.olivine.extra_js %}
+    <script src="{{ get_url(path=js) }}" {{ js.policy | default(value="") }}></script>
+    {%- endfor %}
+    {%- endblock %}
+  </head>
+
+  <body class="leftbar">
+    <script>
+      setSidebar();
+    </script>
+
+    <header>
+      <div>
+        {%- block header %}
+        {%- include "header/leftbar.html" %}
+        {%- include "header/breadcrumb.html" %}
+        {%- include "header/search.html" %}
+        {%- include "header/theme.html" %}
+        {%- include "header/rightbar.html" %}
+        {%- endblock %}
+      </div>
+    </header>
+
+    <div class="sidebar" id="leftbar">
+      <div class="sidebar-content">
+        {%- block leftbar %}
+        {%- include "leftbar/directory.html" %}
+        {%- include "leftbar/journal.html" %}
+        {%- include "leftbar/graph.html" %}
+        {%- include "leftbar/tags.html" %}
+        {%- endblock %}
+      </div>
+    </div>
+
+    <div class="sidebar" id="rightbar">
+      <div class="sidebar-content">
+        {%- block rightbar %}
+        {%- include "rightbar/toc.html" %}
+        {%- include "rightbar/backlinks.html" %}
+        {%- include "rightbar/forwardlinks.html" %}
+        {%- endblock %}
+      </div>
+    </div>
+
+    <div id="main-area">
+      <main>
+        {%- block content %}
+        {%- endblock %}
+      </main>
+    </div>
+    {% include "help.html" %}
+  </body>
+  {% if config.build_search_index %}
+  <script src="{{ get_url(path="search_index.en.js") }}"></script>
+  <script src="{{ get_url(path="elasticlunr.min.js") }}"></script>
+  <script src="{{ get_url(path="search.js") }}"></script>
+  {% endif %}
+</html>

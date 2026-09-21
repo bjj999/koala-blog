@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3/dist/cytoscape.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1>知识图谱</h1>
+<div id="olivine-graph" style="width:100%; height:30em; display:block; border: 1px solid var(--body-text);">
+</div>
+<script>
+let cy_elements = [
+{%- set tags = get_taxonomy(kind="tags") %}
+{%- for tag in tags.items %}
+{ data: { id: '/tags/{{tag.name|safe}}/', type: 'tag', name: '#{{tag.name|safe}}' } },
+{%- for page in tag.pages %}
+{ data: { source: '{{page.path|safe}}', target: '/tags/{{tag.name|safe}}/' } },
+{%- endfor %}
+{%- endfor %}
+{{<olivine.extract path="_index.md" base_url={config.base_url}/>}}];
+
+// Clean up data
+function bad_id(id) {
+  return id.startsWith("/olivine-internal");
+}
+cy_elements = cy_elements.filter(item => {
+  if (item.data.id === undefined) {
+    return (item.data.source !== item.data.target) && !bad_id(item.data.source)
+      && !bad_id(item.data.target);
+  } else {
+    return !bad_id(item.data.id);
+  }
+});
+
+const cy = cytoscape({
+  container: document.getElementById('olivine-graph'),
+  elements: cy_elements,
+  layout: {
+    name: 'cose',
+  },
+  style: [{
+    selector: "node",
+    style: {
+      label: "data(name)",
+      width: 7,
+      height: 7,
+      "text-valign": "bottom",
+      "text-halign": "center",
+      "color": "#777",
+      "background-color": "#7a4",
+      "opacity": 0.4,
+      "font-size": 7,
+      "min-zoomed-font-size": 7,
+    }}, {
+    selector: "edge",
+    style: {
+      "width": 1,
+      "curve-style": "straight",
+      "color": "#777",
+      "opacity": 0.4,
+    }},
+  ],
+  autoungrabify: true,
+  autounselectify: true,
+});
+
+cy.on('mouseover touchstart', 'node', function(evt){
+  var node = evt.target;
+  node.style('opacity', 1);
+  for (adj of node.neighborhood())
+    adj.style('opacity', 0.7);
+});
+
+cy.on('mouseout touchend', 'node', function(evt){
+  var node = evt.target;
+  node.style('opacity', 0.4);
+  for (adj of node.neighborhood())
+    adj.style('opacity', 0.4);
+});
+
+cy.on('tap', 'node', function(evt){
+  var node = evt.target;
+  window.location.href = olivine.base_url + node.id();
+});
+</script>
+{% endblock %}
