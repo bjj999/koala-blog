@@ -24,7 +24,7 @@ jobs:
       - name: Setup Zola
         uses: setup-zola@v1
         with:
-          version: '0.20.0'
+          version: '0.23.0'
 
       - name: Build with Zola
         run: zola build
