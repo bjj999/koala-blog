@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://white_koala.gitee.io/koala_blog"
+base_url = "https://white_koala.gitee.io/blog"
 
 # Site title
 title = "Koala Blog"
