@@ -12,4 +12,6 @@ Thumbs.db
 
 # Zola temporary files
 .zola/
-zola.zip
+
+# Downloaded archives
+*.zip

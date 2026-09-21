@@ -66,7 +66,8 @@
       "Bash(powershell -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://gh-proxy.com/https://github.com/dongryul-kim/olivine/archive/refs/heads/main.zip' -OutFile 'C:\\\\Users\\\\Administrator\\\\Desktop\\\\vibe_coding\\\\Koala_Blog\\\\olivine-theme.zip' -UseBasicParsing -TimeoutSec 120\")",
       "Bash(unzip -o olivine-theme.zip -d themes/)",
       "Bash(rm -rf templates/* && rm -f static/style.css && rm -f deploy.sh)",
-      "Bash(rm -rf content/* && mkdir -p content/journal)"
+      "Bash(rm -rf content/* && mkdir -p content/journal)",
+      "Bash(git commit -m 'Switch to Olivine theme and prepare for GitHub Pages *)"
     ]
   }
 }
